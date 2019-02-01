@@ -16,7 +16,7 @@ const chunksObjectKeys = Object.keys(chunksObject.chunks);
 const m3u8List = path.join(__dirname, 'hls.m3u8');
 
 let startGroup = 0;
-const countGroups = Object.keys(groupsObject.chunks).length;
+const countGroups = chunksObjectKeys.length;
 
 // Added delimiter mark to chunks list
 const splitChunks = [];
