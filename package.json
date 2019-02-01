@@ -1,9 +1,9 @@
 {
-  "name": "HLS",
+  "name": "hls_audio_player_example",
   "version": "1.0.0",
   "description": "Test HLS",
   "main": "index.js",
-  "repository": "git@gitlab.z-inc.net:AUDIO_TEST/HLS.git",
+  "repository": "git@github.com:dipiash/hls_audio_player_example.git",
   "author": "dipiash",
   "license": "MIT",
   "dependencies": {
