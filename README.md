@@ -21,7 +21,7 @@ Examples are presented using the audio tag, the video tag, the hls.js library, a
 1. You need Node.js 8+
 2. You need Yarn or Npm package manager
 3. ```yarn install``` or ```npm install```
-4. ```node index.js``` - start a project on localhost:5000
+4. ```yarn start``` or ```npm run start``` - start a project on localhost:5000
 5. Examples
     
     5.1. HTML5 audio tag (macOS/iOS/Android) - http://localhost:5000/audio.html

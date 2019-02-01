@@ -6,6 +6,9 @@
   "repository": "git@github.com:dipiash/hls_audio_player_example.git",
   "author": "dipiash",
   "license": "MIT",
+  "scripts": {
+    "start": "node ./index.js"
+  },
   "dependencies": {
     "ffprobe": "^1.1.0",
     "ffprobe-static": "^2.0.0",
