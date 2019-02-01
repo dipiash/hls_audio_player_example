@@ -1,0 +1,18 @@
+{
+  "name": "HLS",
+  "version": "1.0.0",
+  "description": "Test HLS",
+  "main": "index.js",
+  "repository": "git@gitlab.z-inc.net:AUDIO_TEST/HLS.git",
+  "author": "dipiash",
+  "license": "MIT",
+  "dependencies": {
+    "ffprobe": "^1.1.0",
+    "ffprobe-static": "^2.0.0",
+    "jsonfile": "^4.0.0",
+    "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
+  }
+}

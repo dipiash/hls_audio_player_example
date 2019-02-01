@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bitmovin SDK</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <!-- Bitmovin Player -->
+    <script type="text/javascript" src="https://bitmovin-a.akamaihd.net/bitmovin-player/stable/7.6/bitmovinplayer.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="banner">
+        <div class="logo"><a href="https://bitmovin.com"><img src="https://ox4zindgwb3p1qdp2lznn7zb-wpengine.netdna-ssl.com/wp-content/themes/Bitmovin-V-0.1/images/logo4.png"></a></div>
+        <div class="title"><h1 class="bitmovin-headline">HTML5 Adaptive Streaming Player for MPEG-DASH & HLS.</h1></div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="content">
+            <div class="row bitmovin-description">
+                <div class="col-lg-12 text-center">Your videos play everywhere with low startup delay, no buffering and in highest quality.</div>
+            </div>
+            <div id="webserver-warning">
+                <h2>Unsupported Protocol</h2>
+                <p>
+                    This file has been loaded using the unsupported "file" protocol. Please use a
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server" target="_blank">web server</a>
+                    and open this page using http or https.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                    <div id="player"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>For more information about the bitmovin player, please have a look at our online <a href="https://developer.bitmovin.com" target="_blank">Developer Section</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	var conf = {
+		key: '956bc103-29fe-43d7-a675-efc47cb9019a',
+		source: {
+			hls: 'http://localhost:5000/get_m3u8',
+			poster: 'https://bitmovin-a.akamaihd.net/content/MI201109210084_1/poster.jpg'
+		}
+	};
+	var player = bitmovin.player('player');
+
+	player.setup(conf).then(
+		function(value) {
+			// Success
+			console.log('Successfully created bitmovin player instance');
+		},
+		function(reason) {
+			// Error!
+			console.log('Error while creating bitmovin player instance');
+		}
+	);
+
+</script>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        color: #fff;
+    }
+    body {
+        background: rgba(44, 131, 185, 1);
+        background: linear-gradient(to right, rgba(44, 131, 185, 1) 0%, rgba(30, 171, 227, 1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2c83b9', endColorstr='#1eabe3', GradientType=1);
+    }
+    #banner {
+        border-bottom: 1px solid #fff;
+        background-color: #1eabe3;
+        width: 100%
+    }
+    #banner h1 {
+        margin: 0;
+        padding: 30px;
+    }
+    #banner .logo {
+        padding: 10px;
+        width: 25%;
+        min-width: 350px;
+        float: left;
+        margin: auto;
+    }
+    #banner .title {
+        width: 75%;
+        white-space: nowrap;
+    }
+    h1.bitmovin-headline, h2.bitmovin-headline, h3.bitmovin-headline, p {
+        font-weight: 300;
+        text-align: center;
+        margin: 40px;
+    }
+    .bitmovin-description {
+        padding: 45px 0;
+        font-size: large;
+    }
+    #player {
+        box-shadow: 0px 0px 56px 0px rgba(0, 0, 0, 0.75);
+    }
+    a {
+        color: #97d9ef;
+        font-weight: 400;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #fff;
+    }
+    #webserver-warning {
+        text-align: center;
+        margin: 50px;
+        padding: 20px;
+        background-color: rgba(255, 0, 0, 0.5);
+        display: none;
+    }
+    @media (max-width: 1000px) {
+        .logo {
+            width: 100%;
+        }
+
+        .title {
+            display: none;
+        }
+    }
+</style>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id='playBtn' onclick="playVid()">Играть</button>
+<button id='pauseBtn' onclick="pauseVid()">Остановить</button>
+<br>
+<audio id='player' preload='metadata' controls='true' autoPlay type='application/x-mpegURL' src='http://localhost:5000/get_m3u8'></audio>
+<script>
+	const video = document.getElementById('player');
+
+	function playVid() {
+		video.play();
+	}
+
+	function pauseVid() {
+		video.pause();
+	}
+</script>
+</body>
+</html>

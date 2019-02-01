@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src='https://cdn.jsdelivr.net/npm/hls.js@0.9.1'></script>
+    <title>Title</title>
+</head>
+<body>
+<button id='playBtn' disabled onclick="playVid()">Играть</button>
+<button id='pauseBtn' disabled onclick="pauseVid()">Остановить</button>
+<br/>
+<video id='player' controls />
+<script>
+	const video = document.getElementById('player');
+
+	if (Hls.isSupported()) {
+		console.log('HLS.js is supported');
+
+		const hls = new Hls({
+			autoStartLoad: true,
+			debug: true,
+			enableWorker: true,
+			enableStreaming: true,
+		});
+
+		hls.loadSource('http://localhost:5000/get_m3u8');
+
+		hls.attachMedia(video);
+
+		hls.on(Hls.Events.MANIFEST_PARSED, function () {
+			console.log('manifest parsed');
+
+			document.getElementById('playBtn').disabled = false;
+			document.getElementById('pauseBtn').disabled = false;
+
+		});
+
+		hls.on(Hls.Events.ERROR, function (event, data) {
+			if (data.fatal) {
+				switch(data.type) {
+					case Hls.ErrorTypes.NETWORK_ERROR:
+						// try to recover network error
+						console.log("fatal network error encountered, try to recover");
+						hls.startLoad();
+						break;
+					case Hls.ErrorTypes.MEDIA_ERROR:
+						console.log("fatal media error encountered, try to recover");
+						hls.recoverMediaError();
+						break;
+					default:
+						// cannot recover
+						// hls.destroy();
+                        console.error('CAT NOT RECOVER', data.type);
+						break;
+				}
+			}
+		});
+	} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+		// hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
+		// When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element throught the `src` property.
+		// This is using the built-in support of the plain video element, without using hls.js.
+		console.log('HLS js is not supported');
+
+		video.src = 'https://mursic.ru/hls.m3u8';
+
+		document.getElementById('playBtn').disabled = false;
+		document.getElementById('pauseBtn').disabled = false;
+	}
+
+	function playVid() {
+		video.play();
+	}
+
+	function pauseVid() {
+		video.pause();
+	}
+</script>
+</body>
+</html>
