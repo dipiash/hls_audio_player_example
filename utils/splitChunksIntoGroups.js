@@ -12,14 +12,14 @@ const dest = path.join(__dirname, '../chunks.json');
 const startTime = new Date();
 console.info('> Start reading files', startTime);
 
-fs.readdir(dir, (readDirError, files) => { // считываем все чанки
+fs.readdir(dir, (readDirError, files) => { // read all chunks
     if (readDirError) {
         console.error(readDirError);
 
         return;
     }
 
-    // складываем чанки по 10 в каждую группу
+    // push 10 chunks into 1 group
 
     const splitChunks = {
         chunkIds: [],

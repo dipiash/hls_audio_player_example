@@ -11,7 +11,7 @@ const dest = path.join(__dirname, '../chunks');
 const startTime = new Date();
 console.info('> Start reading files', startTime);
 
-fs.readdir(dir, (readDirError, files) => { // считываем названия всех исходных файлов
+fs.readdir(dir, (readDirError, files) => { // read title for all files
 	if (readDirError) {
 		console.error(readDirError);
 
@@ -19,7 +19,7 @@ fs.readdir(dir, (readDirError, files) => { // считываем названи�
 	}
 
 	const countFiles = files.length;
-	files.map(async (file, index) => { // декодируем все файлы
+	files.map(async (file, index) => { // decode all files
 		const fileName = path.join(dir, file);
 
 		const indexName = index < 10 ? `00${index}` : index < 100 ? `0${index}` : index < 1000 ? index : index;
