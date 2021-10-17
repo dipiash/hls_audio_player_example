@@ -10,12 +10,12 @@
     "start": "node ./index.js"
   },
   "dependencies": {
-    "ffprobe": "^1.1.0",
-    "ffprobe-static": "^2.0.0",
-    "jsonfile": "^4.0.0",
-    "koa": "^2.5.0",
-    "koa-bodyparser": "^4.2.0",
-    "koa-router": "^7.4.0",
+    "ffprobe": "1.1.2",
+    "ffprobe-static": "3.0.0",
+    "jsonfile": "6.1.0",
+    "koa": "2.13.3",
+    "koa-bodyparser": "4.3.0",
+    "koa-router": "10.1.1",
     "koa-static": "^5.0.0"
   }
 }
