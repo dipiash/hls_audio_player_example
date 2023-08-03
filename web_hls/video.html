@@ -5,11 +5,12 @@
     <title>Title</title>
 </head>
 <body>
+<p>This example only working in Safari</p>
 <button id='playBtn' onclick="playVid()">Play</button>
 <button id='pauseBtn' onclick="pauseVid()">Pause</button>
 <br>
     <video id='player'>
-        <source src='http://localhost:5000/get_m3u8' type='application/x-mpegURL' />
+        <source src='http://localhost:5001/get_m3u8' type='application/x-mpegURL' />
     </video>
     <script>
 	    const video = document.getElementById('player');

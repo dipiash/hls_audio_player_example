@@ -58,15 +58,15 @@ router.get('/get_m3u8', async ctx => {
 
 			`${chunk_1.delimeter ? '#EXT-X-DISCONTINUITY\n' : ''}` +
 			`#EXTINF:${chunk0.duration},\n` +
-			`http://localhost:5000/${chunk0.name}\n` +
+			`http://localhost:5001/${chunk0.name}\n` +
 			`${chunk0.delimeter ? '#EXT-X-DISCONTINUITY\n' : ''}` +
 
 			`#EXTINF:${chunk1.duration},\n` +
-			`http://localhost:5000/${chunk1.name}\n` +
+			`http://localhost:5001/${chunk1.name}\n` +
 			`${chunk1.delimeter ? '#EXT-X-DISCONTINUITY\n' : ''}` +
 
 			`#EXTINF:${chunk2.duration},\n` +
-			`http://localhost:5000/${chunk2.name}\n`;
+			`http://localhost:5001/${chunk2.name}\n`;
 
 		// Write to file
 		const appendStream = fs.createWriteStream(m3u8List, {flags: 'w', encoding: 'utf8', autoClose: true});
@@ -86,4 +86,4 @@ app
 	.use(router.routes())
 	.use(router.allowedMethods());
 
-app.listen(5000, () => console.log('Server started on http://localhost:5000'));
+app.listen(5001, () => console.log('Server started on http://localhost:5001'));
